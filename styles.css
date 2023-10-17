@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle, #7b4397, #1c77b0);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+@keyframes gradientBG {
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    padding: 20px;
+    box-sizing: border-box;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.chatbox {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    height: 300px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.user, .support {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.user {
+    background-color: #e9e9e9;
+    align-self: flex-end;
+    align-items: flex-end;
+    text-align: right;
+}
+.user:before {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #e9e9e9;
+    border-bottom: 10px solid transparent;
+}
+.support {
+    background-color: #1c77b0;
+    color: #ffffff;
+    align-self: flex-start;
+    align-items: flex-start;
+    text-align: left;
+}
+.support:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #1c77b0;
+    border-bottom: 10px solid transparent;
+}
+#userInput {
+    width: 85%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #1c77b0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+button:hover {
+    background-color: #2196e0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+footer a {
+    color: #1c77b0;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #2196e0;
+}
+
