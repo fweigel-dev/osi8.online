@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const chatboxEl = document.getElementById('chatbox');
+    let answerFromURL = null;
 
     document.body.addEventListener('click', function (event) {
         if (event.target.id === 'sendButton') {
@@ -13,10 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const initialQuestion = getQuestionFromURL();
-    if (initialQuestion) {
-        appendMessage('user', initialQuestion);
-        appendMessage('support', getSupportReply(initialQuestion));
+    const queryParams = getParamsFromURL();
+
+    if (queryParams.question) {
+        appendMessage('user', queryParams.question);
+
+        // If only 'question' is present, get a support reply
+        // If both 'question' and 'answer' are present, use the provided answer
+        const reply = queryParams.answer ? queryParams.answer : getSupportReply(queryParams.question);
+        appendMessage('support', reply);
+    } else if (queryParams.answer) {
+        // If only 'answer' is present, store it to be used after user input
+        answerFromURL = queryParams.answer;
     }
 
     function addUserMessage() {
@@ -26,7 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!userInput) return;
 
         appendMessage('user', userInput);
-        appendMessage('support', getSupportReply(userInput));
+
+        const reply = answerFromURL ? answerFromURL : getSupportReply(userInput);
+        appendMessage('support', reply);
+
+        answerFromURL = null;
 
         userInputEl.value = '';
         chatboxEl.scrollTop = chatboxEl.scrollHeight;
@@ -47,7 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function getQuestionFromURL() {
+function getParamsFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('question');
+    return {
+        question: urlParams.get('question'),
+        answer: urlParams.get('answer')
+    };
 }
