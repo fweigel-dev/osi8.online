@@ -3,6 +3,27 @@ document.addEventListener("DOMContentLoaded", function () {
     let answerFromURL = null;
 
     document.body.addEventListener('click', function (event) {
+        if (event.target.id==='generateLinkButton'){
+            const customLinkDiv = document.getElementById('customLink');
+            customLinkDiv.style.display = customLinkDiv.style.display === 'none' ? 'block' : 'none';
+        } else if (event.target.id === 'generateCustomLink') {
+            const customQuestion = document.getElementById('customQuestion').value.trim();
+            const customAnswer = document.getElementById('customAnswer').value.trim();
+            const generatedLink = document.getElementById('generatedLink');
+            if (customQuestion) {
+                generatedLink.value = `https://osi8.online?question=${customQuestion}`;
+                if (customAnswer) {
+                    generatedLink.value += `&answer=${customAnswer}`;
+                }
+            } else if (customAnswer) {
+                generatedLink.value = `https://osi8.online?answer=${customAnswer}`;
+            } else {
+                generatedLink.value = '';
+            }
+            generatedLink.textContent = generatedLink.value;
+            generatedLink.href = generatedLink.value;
+
+        }
         if (event.target.id === 'sendButton') {
             addUserMessage();
         }

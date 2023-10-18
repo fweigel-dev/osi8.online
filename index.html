@@ -18,11 +18,24 @@
             <button id="sendButton">Send</button>
         </div>
         <footer>
-            <a href="https://github.com/Ferox-Stylo/osi8.online" target="_blank">View on GitHub</a>
+            <div style="display: flex; justify-content: space-evenly; ">
+                <a href="#" id="generateLinkButton">Generate a custom Link</a>
+                <a href="https://github.com/Ferox-Stylo/osi8.online" target="_blank">View on GitHub</a>
+            </div>
         </footer>
+        <div id="customLink" style="display: none; margin-top: 20px">
+            <div>
+                <input type="text" id="customQuestion" placeholder="Enter your custom question">
+            </div>
+            <div>
+                <input type="text" id="customAnswer" placeholder="Enter your custom answer">
+            </div>
+            <button id="generateCustomLink">Generate Link</button>
+            <a id="generatedLink" target="_blank" style="margin-top: 10px"></a>
+        </div>
     </div>
+    <script src="script.js"></script>
+    <script src="responses.js"></script>
 </div>
-<script src="script.js"></script>
-<script src="responses.js"></script>
 </body>
 </html>

@@ -129,3 +129,37 @@ footer a:hover {
     color: #2196e0;
 }
 
+#customLink {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#customLink label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#customLink input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#generatedLink {
+    color: #1c77b0;
+    font-weight: bold;
+}
+
+#customAnswer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
